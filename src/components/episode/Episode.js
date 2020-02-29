@@ -16,10 +16,7 @@ const Episode = ({
 }) => {
   useEffect(() => {
     fetchEpisode(id);
-    return () => {
-      fetchEpisode(id);
-    };
-  }, [fetchEpisode]);
+  }, [fetchEpisode, id]);
   return episode.loading ? (
     LoadingCard
   ) : (
