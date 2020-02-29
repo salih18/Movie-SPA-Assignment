@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Demo
 
-Online Deployment of this project is available at [Create React App](https://github.com/facebook/create-react-app).
+Online Deployment of this project is available at [RTL Movie SPA](https://rtl-movie-spa.netlify.com/).
 
 ### Getting Started
 
