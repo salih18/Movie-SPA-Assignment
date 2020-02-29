@@ -8,7 +8,7 @@ import ShowEpisodes from './ShowEpisodes';
 import LoadingCard from './../layout/LoadingCard';
 import PropTypes from 'prop-types';
 
-const Show = ({ fetchShow, show, loading, season }) => {
+const Show = ({ fetchShow, data: { show }, loading, season }) => {
   useEffect(() => {
     fetchShow('the-powerpuff-girls');
   }, [fetchShow]);
@@ -27,10 +27,13 @@ const Show = ({ fetchShow, show, loading, season }) => {
 Show.propTypes = {
   setAlert: PropTypes.func.isRequired,
   fetchShow: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+  season: PropTypes.number.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
-  show: state.data.show,
+  data: state.data,
   season: state.season,
   loading: state.data.loading,
 });

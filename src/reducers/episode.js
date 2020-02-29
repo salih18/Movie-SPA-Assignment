@@ -1,4 +1,4 @@
-import { FETCH_EPISODE_SUCCESS, FETCH_EPISODE_FAIL } from '../actions/types';
+import { FETCH_EPISODE_SUCCESS } from '../actions/types';
 
 const initialState = {
   episode: {},
