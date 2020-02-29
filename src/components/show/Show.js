@@ -5,21 +5,22 @@ import { fetchShow } from '../../actions/data';
 import ShowSummary from './ShowSummary';
 import ShowAttributes from './ShowAttributes';
 import ShowEpisodes from './ShowEpisodes';
-
+import LoadingCard from './../layout/LoadingCard';
 import PropTypes from 'prop-types';
 
 const Show = ({ fetchShow, show, loading, season }) => {
   useEffect(() => {
-    fetchShow();
+    fetchShow('the-powerpuff-girls');
   }, [fetchShow]);
-  return (
-    loading === false && (
-      <>
-        <ShowSummary show={show} />
-        <ShowAttributes show={show} />
-        <ShowEpisodes show={show} season={season} />
-      </>
-    )
+
+  return loading ? (
+    LoadingCard
+  ) : (
+    <>
+      <ShowSummary show={show} />
+      <ShowAttributes show={show} />
+      <ShowEpisodes show={show} season={season} />
+    </>
   );
 };
 

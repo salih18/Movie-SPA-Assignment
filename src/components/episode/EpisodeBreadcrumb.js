@@ -4,24 +4,15 @@ import { Breadcrumb } from 'semantic-ui-react';
 
 const EpisodeBreadcrump = ({
   episode: {
-    episode: {
-      id,
-      name,
-      season,
-      airdate,
-
-      _embedded,
-    },
+    episode: { name, season, _embedded },
   },
 }) => (
   <Breadcrumb>
     <Breadcrumb.Section link>Home</Breadcrumb.Section>
     <Breadcrumb.Divider icon="right chevron" />
-
     <Breadcrumb.Section as={Link} to="/">
       {_embedded.show.name}
     </Breadcrumb.Section>
-
     <Breadcrumb.Divider icon="right chevron" />
     <Breadcrumb.Section as={Link} to={`/`}>
       Season {season}

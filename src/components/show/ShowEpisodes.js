@@ -20,7 +20,6 @@ const ShowEpisodeList = ({ show: { episodesBySeason }, season }) => {
             <Table.HeaderCell>Air Date</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
-
         <Table.Body>
           {episodesBySeason[season].map(episode => (
             <ShowEpisodeItem key={episode.id} episode={episode} />

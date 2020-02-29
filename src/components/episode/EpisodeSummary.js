@@ -3,7 +3,7 @@ import { Item, Label, Header, Divider, Placeholder, Card } from 'semantic-ui-rea
 
 const EpisodeSummary = ({
   episode: {
-    episode: { id, name, season, airdate, image },
+    episode: { name, season, airdate, image },
   },
 }) => {
   return (
@@ -24,7 +24,6 @@ const EpisodeSummary = ({
         <Item.Content>
           <Item.Header> Season {season} </Item.Header>
           <Divider />
-
           <Item.Header>
             Airdate: <Label color="orange">{airdate}</Label>
           </Item.Header>

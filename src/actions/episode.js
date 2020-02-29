@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { FETCH_EPISODE_SUCCESS, FETCH_EPISODE_FAIL } from './types';
+import { setAlert } from './alert';
+import { FETCH_EPISODE_SUCCESS } from './types';
 import { selectSeason } from './season';
 
 export const fetchEpisode = id => async dispatch => {
@@ -9,12 +10,8 @@ export const fetchEpisode = id => async dispatch => {
       type: FETCH_EPISODE_SUCCESS,
       payload: res.data,
     });
-    console.log(res.data.season);
     dispatch(selectSeason(res.data.season));
-  } catch (error) {
-    dispatch({
-      type: FETCH_EPISODE_FAIL,
-      payload: { msg: error.response },
-    });
+  } catch (err) {
+    dispatch(setAlert(err.message, 'brown'));
   }
 };

@@ -1,19 +1,20 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { FETCH_SHOW_SUCCESS, FETCH_SHOW_FAIL } from './types';
+import { FETCH_SHOW_SUCCESS } from './types';
 
-export const fetchShow = () => async dispatch => {
+export const fetchShow = showName => async dispatch => {
   try {
-    // Use session storage to make the app more performant
-    const cachedHits = sessionStorage.getItem('showData');
-    if (cachedHits) {
+    //Use session storage to make the app more performant
+    const parseShow = JSON.parse(sessionStorage.getItem('showData'));
+    if (parseShow) {
       return dispatch({
         type: FETCH_SHOW_SUCCESS,
-        payload: JSON.parse(cachedHits),
+        payload: parseShow,
       });
     }
+
     const res = await axios.get(
-      'http://api.tvmaze.com/singlesearch/shows?q=the-powerpuff-girls&embed[]=episodes&embed[]=cast&embed[]=seasons',
+      `http://api.tvmaze.com/singlesearch/shows?q=${showName}&embed[]=episodes&embed[]=cast&embed[]=seasons`,
     );
     const episodesBySeason = res.data._embedded.episodes.reduce((list, episode) => {
       const { id, url, name, season, number, airdate, image, summary } = episode;
@@ -41,9 +42,6 @@ export const fetchShow = () => async dispatch => {
     });
     sessionStorage.setItem('showData', JSON.stringify({ ...res.data, episodesBySeason }));
   } catch (err) {
-    const errors = err.response.data.errors;
-    if (errors) {
-      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-    }
+    dispatch(setAlert(err.message, 'brown'));
   }
 };

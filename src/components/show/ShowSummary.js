@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Item, Label, Header, Divider } from 'semantic-ui-react';
 
 const ShowSummary = ({
   show: {
-    id,
     name,
     rating,
     genres,
@@ -23,7 +22,6 @@ const ShowSummary = ({
             ))}
           </Item.Header>
           <Divider />
-
           <Item.Header>
             Rating: <Label>{rating.average}</Label>
           </Item.Header>
