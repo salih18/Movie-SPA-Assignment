@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 
 const Show = ({ fetchShow, data: { show }, loading, season }) => {
   useEffect(() => {
+    // fetching by showname
     fetchShow('the-powerpuff-girls');
   }, [fetchShow]);
 

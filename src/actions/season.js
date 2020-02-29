@@ -1,8 +1,8 @@
 import { SELECT_SEASON } from './types';
 
-export const selectSeason = name => async dispatch => {
+export const selectSeason = number => async dispatch => {
   dispatch({
     type: SELECT_SEASON,
-    payload: name,
+    payload: number,
   });
 };

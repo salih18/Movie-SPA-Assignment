@@ -77,6 +77,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - Spread operator
 - Modules export/import
 - New Built-In Methods
+- Default Parameters
 
 #### Libraries/Frameworks
 
@@ -118,6 +119,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ##### Global State Flow
 
+- alert: this is used by Alert component. Whenever there is an error in the try catch its component will be rendering
+- data: stores show information which comes as a response.
+- episode: stores show information which comes as a response.
+- season: stores the season number that is selected in the table as a tabular style
+
 ```
 {
  alert: [],
@@ -145,7 +151,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ```
 
-##### Session Storage
+##### NOTE: Session Storage
 
 After the first request the show data is stored in sessionStorage.
 
